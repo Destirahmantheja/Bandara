@@ -7,15 +7,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.uas.projectbandara.API.APIRequestData;
+import com.uas.projectbandara.API.RetroServer;
+import com.uas.projectbandara.Adapter.AdapterBandara;
 import com.uas.projectbandara.Model.ModelBandara;
+import com.uas.projectbandara.Model.ModelResponse;
 import com.uas.projectbandara.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvBandara;
@@ -50,8 +58,33 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         retrieveBandara();
     }
-    public void retrieveBandara(){
+
+    public void retrieveBandara() {
         pbBandara.setVisibility(View.VISIBLE);
+
+        APIRequestData API = RetroServer.konekRetrofit().create(APIRequestData.class);
+        Call<ModelResponse> proses = API.ardRetrieve();
+
+        proses.enqueue(new Callback<ModelResponse>() {
+            @Override
+            public void onResponse(Call<ModelResponse> call, Response<ModelResponse> response) {
+                String kode = response.body().getKode();
+                String pesan = response.body().getPesan();
+                listbandara = response.body().getData();
+
+                adBandara = new AdapterBandara(MainActivity.this, listbandara);
+                rvBandara.setAdapter(adBandara);
+                adBandara.notifyDataSetChanged();
+
+                pbBandara.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onFailure(Call<ModelResponse> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Gagal menghubungi server!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 }

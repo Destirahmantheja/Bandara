@@ -2,14 +2,23 @@ package com.uas.projectbandara.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.uas.projectbandara.API.APIRequestData;
+import com.uas.projectbandara.API.RetroServer;
+import com.uas.projectbandara.Model.ModelResponse;
 import com.uas.projectbandara.R;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class UbahActivity extends AppCompatActivity {
     private String yNama, ySejarah, yLuasBandara, yKota, yTahunBerdiri;
@@ -68,6 +77,27 @@ public class UbahActivity extends AppCompatActivity {
         });
     }
     private void ubahBandara(){
+        APIRequestData API = RetroServer.konekRetrofit().create(APIRequestData.class);
+        Call<ModelResponse> proses = API.ardUpdate(yNama, sejarah,luasbandara, kota,tahunberdiri);
 
+        proses.enqueue(new Callback<ModelResponse>() {
+            @Override
+            public void onResponse(Call<ModelResponse> call, Response<ModelResponse> response) {
+                String kode, pesan;
+                kode = response.body().getKode();
+                pesan = response.body().getPesan();
+
+                Toast.makeText(UbahActivity.this, "kode : " + kode +"Pesan : " + pesan, Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<ModelResponse> call, Throwable t) {
+                Toast.makeText(UbahActivity.this, "Error:Gagal menghubungi server!", Toast.LENGTH_SHORT).show();
+                Log.d("Disini", "Errornya itu: " + t.getMessage());
+            }
+        });
     }
 }
+
+

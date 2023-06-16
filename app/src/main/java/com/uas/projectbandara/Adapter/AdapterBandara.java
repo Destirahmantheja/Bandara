@@ -75,7 +75,7 @@ public class AdapterBandara extends RecyclerView.Adapter<AdapterBandara.VHBandar
             btnHapus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    deleteKampus(tvNama.getText().toString());
+                    deleteBandara(tvNama.getText().toString());
                 }
             });
 
@@ -93,7 +93,7 @@ public class AdapterBandara extends RecyclerView.Adapter<AdapterBandara.VHBandar
             });
         }
 
-        void deleteKampus(String nama){
+        void deleteBandara(String nama){
             APIRequestData API = RetroServer.konekRetrofit().create(APIRequestData.class);
             Call<ModelResponse> proses = API.ardDelete(nama);
 
