@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.uas.projectbandara.API.APIRequestData;
 import com.uas.projectbandara.API.RetroServer;
+import com.uas.projectbandara.Activity.DetailActivity;
 import com.uas.projectbandara.Activity.MainActivity;
 import com.uas.projectbandara.Activity.UbahActivity;
 import com.uas.projectbandara.Model.ModelBandara;
@@ -27,13 +28,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AdapterBandara extends RecyclerView.Adapter<AdapterBandara.VHBandara>{
+public class AdapterBandara extends RecyclerView.Adapter<AdapterBandara.VHBandara> {
     private Context ctx;
-    private List<ModelBandara> listbandara;
+    private List<ModelBandara> listBandara;
 
     public AdapterBandara(Context ctx, List<ModelBandara> listbandara) {
         this.ctx = ctx;
-        this.listbandara = listbandara;
+        this.listBandara = listbandara;
     }
 
     @NonNull
@@ -45,7 +46,8 @@ public class AdapterBandara extends RecyclerView.Adapter<AdapterBandara.VHBandar
 
     @Override
     public void onBindViewHolder(@NonNull VHBandara holder, int position) {
-        ModelBandara MB = listbandara.get(position);
+        ModelBandara MB = listBandara.get(position);
+        holder.tvId.setText(MB.getNama());
         holder.tvNama.setText(MB.getNama());
         holder.tvSejarah.setText(MB.getSejarah());
         holder.tvLuasbandara.setText(MB.getLuasbandara());
@@ -54,28 +56,31 @@ public class AdapterBandara extends RecyclerView.Adapter<AdapterBandara.VHBandar
 
     @Override
     public int getItemCount() {
-        return listbandara.size();
+        return listBandara.size();
     }
 
     public class VHBandara extends RecyclerView.ViewHolder{
-        TextView tvNama, tvSejarah, tvLuasbandara, tvKota, tvTahunberdiri;
-        Button btnHapus, btnUbah;
+        TextView tvId, tvNama, tvSejarah, tvLuasbandara, tvKota, tvTahunberdiri;
+        Button btnHapus, btnUbah, btnDetail;
 
         public VHBandara(@NonNull View itemView) {
             super(itemView);
 
+            tvId = itemView.findViewById(R.id.tv_id);
             tvNama = itemView.findViewById(R.id.tv_nama);
             tvSejarah= itemView.findViewById(R.id.tv_sejarah);
             tvLuasbandara = itemView.findViewById(R.id.tv_luas_bandara);
             tvKota = itemView.findViewById(R.id.tv_kota);
             tvTahunberdiri = itemView.findViewById(R.id.tv_tahun_berdiri);
+
             btnHapus = itemView.findViewById(R.id.btn_hapus);
             btnUbah = itemView.findViewById(R.id.btn_ubah);
+            btnDetail = itemView.findViewById(R.id.btn_detail);
+
 
             btnHapus.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    deleteBandara(tvNama.getText().toString());
+                public void onClick(View v) {deleteBandara(tvNama.getText().toString());
                 }
             });
 
@@ -83,6 +88,20 @@ public class AdapterBandara extends RecyclerView.Adapter<AdapterBandara.VHBandar
                 @Override
                 public void onClick(View v) {
                     Intent pindah = new Intent(ctx, UbahActivity.class);
+                    pindah.putExtra("Xid",tvId.getText().toString());
+                    pindah.putExtra("xNama", tvNama.getText().toString());
+                    pindah.putExtra("xSejarah", tvSejarah.getText().toString());
+                    pindah.putExtra("xLuasbandara", tvLuasbandara.getText().toString());
+                    pindah.putExtra("xKota", tvKota.getText().toString());
+                    pindah.putExtra("xTahunberdiri", tvTahunberdiri.getText().toString());
+                    ctx.startActivity(pindah);
+                }
+            });
+
+            btnDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent pindah = new Intent(ctx, DetailActivity.class);
                     pindah.putExtra("xNama", tvNama.getText().toString());
                     pindah.putExtra("xSejarah", tvSejarah.getText().toString());
                     pindah.putExtra("xLuasbandara", tvLuasbandara.getText().toString());
@@ -93,9 +112,10 @@ public class AdapterBandara extends RecyclerView.Adapter<AdapterBandara.VHBandar
             });
         }
 
-        void deleteBandara(String nama){
+
+        void deleteBandara(String id){
             APIRequestData API = RetroServer.konekRetrofit().create(APIRequestData.class);
-            Call<ModelResponse> proses = API.ardDelete(nama);
+            Call<ModelResponse> proses = API.ardDelete(id);
 
             proses.enqueue(new Callback<ModelResponse>() {
                 @Override

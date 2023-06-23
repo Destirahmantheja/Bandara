@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="6dp"
     android:orientation="vertical"
-    android:background="#D6E4E5">
+    tools:context=".Activity.TambahActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,6 +15,7 @@
         android:textSize="20dp"
         android:fontFamily="monospace"
         android:textStyle="bold"
+        android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"/>
 
     <EditText
@@ -20,12 +23,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:textSize="20dp"
         android:hint="Nama"/>
 
     <EditText
         android:id="@+id/et_sejarah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
         android:inputType="text"
         android:hint="Sejarah"/>
 
@@ -33,6 +38,7 @@
         android:id="@+id/et_luas_bandara"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
         android:inputType="text"
         android:hint="Luas bandara"/>
 
@@ -41,6 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:textSize="20dp"
         android:hint="Kota"/>
 
     <EditText
@@ -48,6 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:textSize="20dp"
         android:hint="Tahun berdiri"/>
 
     <Button
@@ -55,6 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Simpan"
+        android:layout_marginTop="30dp"
         android:fontFamily="monospace"
         android:textStyle="bold"
         android:backgroundTint="#0E2954"/>

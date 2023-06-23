@@ -12,19 +12,27 @@ import com.uas.projectbandara.Activity.MainActivity;
 import com.uas.projectbandara.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
+    private static final int SPLASH_TIMEOUT = 2000;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        getSupportActionBar().hide();
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+                Intent splash = new Intent(SplashScreenActivity.this, MainActivity.class);
+                startActivity(splash);
                 finish();
             }
-        },2000);
+        }, SPLASH_TIMEOUT);
     }
 }
+
+
+
+
+
+
+

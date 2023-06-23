@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D6E4E5">
+    tools:context=".Activity.DetailActivity"
+    android:background="#A1C2F1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,31 +17,46 @@
             android:id="@+id/tv_nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama" />
+            android:text="Nama"
+            android:padding="2dp"
+            style="@style/TextAppearance.AppCompat.Medium"/>
 
         <TextView
             android:id="@+id/tv_sejarah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sejarah"/>
+            android:text="Sejarah"
+            android:padding="2dp"
+            android:justificationMode="inter_word"
+            style="@style/TextAppearance.AppCompat.Medium"/>
 
         <TextView
             android:id="@+id/tv_luas_bandara"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Luas bandara" />
+            android:text="Luas bandara"
+            android:padding="2dp"
+            android:justificationMode="inter_word"
+            style="@style/TextAppearance.AppCompat.Medium"/>
 
         <TextView
             android:id="@+id/tv_kota"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kota"/>
+            android:text="Kota"
+            android:padding="2dp"
+            android:justificationMode="inter_word"
+            style="@style/TextAppearance.AppCompat.Medium"/>
 
         <TextView
             android:id="@+id/tv_tahun_berdiri"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tahun berdiri"/>
+            android:text="Tahun berdiri"
+            android:padding="2dp"
+            android:justificationMode="inter_word"
+            style="@style/TextAppearance.AppCompat.Medium"/>
+
     </LinearLayout>
 
 </ScrollView>

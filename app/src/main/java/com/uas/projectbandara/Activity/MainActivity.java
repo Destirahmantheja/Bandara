@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         rvBandara = findViewById(R.id.rv_bandara);
-        fabTambah = findViewById(R.id.fab_tambah);
+         fabTambah = findViewById(R.id.fab_tambah);
         pbBandara = findViewById(R.id.pb_bandara);
 
         lmBandara = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

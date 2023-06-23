@@ -21,7 +21,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UbahActivity extends AppCompatActivity {
-    private String yNama, ySejarah, yLuasBandara, yKota, yTahunBerdiri;
+    private String yId, yNama, ySejarah, yLuasBandara, yKota, yTahunBerdiri;
     private EditText etNama, etSejarah, etLuasBandara, etKota, etTahunBerdiri;
     private Button btnUbah;
     private String nama, sejarah, luasbandara, kota, tahunberdiri;
@@ -32,6 +32,7 @@ public class UbahActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ubah);
 
         Intent ambil = getIntent();
+        yId = ambil.getStringExtra("xId");
         yNama = ambil.getStringExtra("xNama");
         ySejarah = ambil.getStringExtra("xSejarah");
         yLuasBandara = ambil.getStringExtra("xLuasBandara");
@@ -43,6 +44,7 @@ public class UbahActivity extends AppCompatActivity {
         etLuasBandara = findViewById(R.id.et_luas_bandara);
         etKota = findViewById(R.id.et_kota);
         etTahunBerdiri = findViewById(R.id.et_tahun_berdiri);
+
         btnUbah = findViewById(R.id.btn_ubah);
 
         etNama.setText(yNama);
@@ -71,14 +73,14 @@ public class UbahActivity extends AppCompatActivity {
                 } else if (tahunberdiri.trim().isEmpty()) {
                     etTahunBerdiri.setError("tahun tidak boleh kosong");
                 } else {
-
+                        ubahBandara();
                 }
             }
         });
     }
     private void ubahBandara(){
         APIRequestData API = RetroServer.konekRetrofit().create(APIRequestData.class);
-        Call<ModelResponse> proses = API.ardUpdate(yNama, sejarah,luasbandara, kota,tahunberdiri);
+        Call<ModelResponse> proses = API.ardUpdate(yId, nama, sejarah, luasbandara, kota, tahunberdiri);
 
         proses.enqueue(new Callback<ModelResponse>() {
             @Override

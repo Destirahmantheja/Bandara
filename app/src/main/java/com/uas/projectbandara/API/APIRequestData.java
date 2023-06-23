@@ -1,7 +1,5 @@
 package com.uas.projectbandara.API;
 
-import android.view.Display;
-
 import com.uas.projectbandara.Model.ModelResponse;
 
 import retrofit2.Call;
@@ -28,6 +26,7 @@ public interface APIRequestData {
     @FormUrlEncoded
     @POST("update.php")
     Call<ModelResponse> ardUpdate(
+            @Field("id") String id,
             @Field("nama") String nama,
             @Field("sejarah") String sejarah,
             @Field("luasbandara") String luasbandara,
@@ -38,7 +37,7 @@ public interface APIRequestData {
     @FormUrlEncoded
     @POST("delete.php")
     Call<ModelResponse> ardDelete(
-            @Field("nama") String nama
+            @Field("id") String id
     );
 }
 
