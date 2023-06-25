@@ -1,72 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="6dp"
-    tools:context=".Activity.UbahActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Activity.UbahActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ubah Bandara"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"
-        android:fontFamily="monospace"
-        android:layout_marginBottom="20dp"
-        android:textStyle="bold"/>
-
+        android:text="Ubah Data"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25sp"/>
 
     <EditText
         android:id="@+id/et_nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:hint="Nama"/>
-
+        android:hint="Nama"
+        android:inputType="text"/>
     <EditText
         android:id="@+id/et_sejarah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:hint="Sejarah"/>
-
+        android:hint="sejarah"
+        android:inputType="text"/>
     <EditText
         android:id="@+id/et_luas_bandara"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:hint="Luas bandara"/>
-
+        android:hint="luas bandara"
+        android:inputType="text"/>
     <EditText
         android:id="@+id/et_kota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:hint="Kota"/>
-
+        android:hint="kota"
+        android:inputType="text"/>
     <EditText
         android:id="@+id/et_tahun_berdiri"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:hint="Tahun berdiri"/>
-
+        android:hint="tahun berdiri"
+        android:inputType="text"/>
     <Button
         android:id="@+id/btn_ubah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Simpan"
-        android:fontFamily="monospace"
+        android:text="Ubah"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_marginTop="30dp"
         android:backgroundTint="#0E2954"/>
+
 
 </LinearLayout>

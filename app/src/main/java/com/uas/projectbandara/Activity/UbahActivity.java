@@ -64,16 +64,21 @@ public class UbahActivity extends AppCompatActivity {
 
                 if (nama.trim().isEmpty()) {
                     etNama.setError("nama tidak boleh kosong");
-                } else if (sejarah.trim().isEmpty()) {
+                }
+                else if (sejarah.trim().isEmpty()) {
                     etSejarah.setError("sejarah tidak boleh kosong");
-                } else if (luasbandara.trim().isEmpty()) {
+                }
+                else if (luasbandara.trim().isEmpty()) {
                     etLuasBandara.setError("luas tidak boleh kosong");
-                } else if (kota.trim().isEmpty()) {
+                }
+                else if (kota.trim().isEmpty()) {
                     etKota.setError("kota tidak boleh kosong");
-                } else if (tahunberdiri.trim().isEmpty()) {
+                }
+                else if (tahunberdiri.trim().isEmpty()) {
                     etTahunBerdiri.setError("tahun tidak boleh kosong");
-                } else {
-                        ubahBandara();
+                }
+                else {
+                    ubahBandara();
                 }
             }
         });

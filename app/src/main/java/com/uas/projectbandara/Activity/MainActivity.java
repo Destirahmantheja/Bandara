@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar pbBandara;
     private RecyclerView.Adapter adBandara;
     private RecyclerView.LayoutManager lmBandara;
-    private List<ModelBandara> listbandara = new ArrayList<>();
+    private List<ModelBandara> listBandara = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         rvBandara = findViewById(R.id.rv_bandara);
-         fabTambah = findViewById(R.id.fab_tambah);
+        fabTambah = findViewById(R.id.fab_tambah);
         pbBandara = findViewById(R.id.pb_bandara);
 
         lmBandara = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ModelResponse> call, Response<ModelResponse> response) {
                 String kode = response.body().getKode();
                 String pesan = response.body().getPesan();
-                listbandara = response.body().getData();
+                listBandara = response.body().getData();
 
-                adBandara = new AdapterBandara(MainActivity.this, listbandara);
+                adBandara = new AdapterBandara(MainActivity.this, listBandara);
                 rvBandara.setAdapter(adBandara);
                 adBandara.notifyDataSetChanged();
 

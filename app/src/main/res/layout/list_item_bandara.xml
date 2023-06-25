@@ -16,42 +16,32 @@
             android:id="@+id/tv_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Id"
+            android:text="ID"
             android:visibility="gone"/>
-
         <TextView
             android:id="@+id/tv_nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:text="Nama"/>
-
         <TextView
             android:id="@+id/tv_sejarah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:text="Sejarah"/>
-
         <TextView
             android:id="@+id/tv_luas_bandara"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:text="Luas bandara"/>
-
         <TextView
             android:id="@+id/tv_kota"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:text="Kota"/>
-
         <TextView
             android:id="@+id/tv_tahun_berdiri"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:text="Tahun berdiri"/>
 
         <LinearLayout
@@ -65,41 +55,36 @@
                 android:id="@+id/btn_ubah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="UBAH"
-                android:textSize="10sp"
-                android:fontFamily="monospace"
+                android:text="Ubah"
                 android:drawableLeft="@drawable/ic_ubah"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:layout_marginRight="2dp"
-                android:backgroundTint="#0E2954"/>
-
-            <Button
-                android:id="@+id/btn_hapus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="HAPUS"
-                android:textSize="10sp"
-                android:fontFamily="monospace"
-                android:drawableLeft="@drawable/ic_hapus"
-                android:layout_weight="2"
-                android:layout_marginRight="2dp"
-                android:backgroundTint="#0E2954"/>
-
+                android:backgroundTint="#0E2954"
+                android:textStyle="bold"/>
             <Button
                 android:id="@+id/btn_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DETAIl"
-                android:textSize="10sp"
-                android:fontFamily="monospace"
+                android:text="Detail"
                 android:drawableLeft="@drawable/ic_detail"
-                android:layout_weight="2"
-                android:layout_marginRight="2dp"
-                android:backgroundTint="#0E2954"/>
+                android:layout_weight="1"
+                android:layout_marginLeft="2dp"
+                android:backgroundTint="#0E2954"
+                android:textStyle="bold"/>
+            <Button
+                android:id="@+id/btn_hapus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hapus"
+                android:drawableLeft="@drawable/ic_hapus"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:backgroundTint="#0E2954"
+                android:textStyle="bold"/>
+
+
         </LinearLayout>
 
-
     </LinearLayout>
-
 
 </androidx.cardview.widget.CardView>

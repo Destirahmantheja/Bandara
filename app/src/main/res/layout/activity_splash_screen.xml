@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreen.SplashScreenActivity">
+    tools:context=".SplashScreen.SplashScreenActivity"
+    android:backgroundTint="#0E2954">
 
     <ImageView
-        android:id="@+id/iv_splash"
+        android:id="@+id/iv_splash_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -16,11 +17,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_below="@+id/iv_splash"
         android:layout_centerHorizontal="true"
-        android:fontFamily="monospace"
         android:text="Welcome Bandara"
         android:textStyle="bold"
+        android:textColor="#0E2954"
         android:textSize="20sp"/>
 
 </RelativeLayout>

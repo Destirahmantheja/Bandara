@@ -12,7 +12,7 @@ import com.uas.projectbandara.R;
 
 public class DetailActivity extends AppCompatActivity {
     private TextView tvNama, tvSejarah, tvLuasbandara, tvKota, tvTahunberdiri;
-    private String yNama, ySejarah, yLuasbandara, yKota, yTahunberdiri;
+    private String detNama, detSejarah, detLuasbandara, detKota, detTahunberdiri;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,17 +26,17 @@ public class DetailActivity extends AppCompatActivity {
         tvTahunberdiri = findViewById(R.id.tv_tahun_berdiri);
 
         Intent terima = getIntent();
-        yNama = terima.getStringExtra("xNama");
-        ySejarah = terima.getStringExtra("xSejarah");
-        yLuasbandara = terima.getStringExtra("xLuasbandara");
-        yKota = terima.getStringExtra("xKota");
-        yTahunberdiri = terima.getStringExtra("xTahunberdiri");
+        detNama = terima.getStringExtra("xNama");
+        detSejarah = terima.getStringExtra("xSejarah");
+        detLuasbandara = terima.getStringExtra("xLuasbandara");
+        detKota = terima.getStringExtra("xKota");
+        detTahunberdiri = terima.getStringExtra("xTahunberdiri");
 
-        tvNama.setText(yNama);
-        tvSejarah.setText(ySejarah);
-        tvLuasbandara.setText(yLuasbandara);
-        tvKota.setText(yKota);
-        tvTahunberdiri.setText(yTahunberdiri);
+        tvNama.setText(detNama);
+        tvSejarah.setText(detSejarah);
+        tvLuasbandara.setText(detLuasbandara);
+        tvKota.setText(detKota);
+        tvTahunberdiri.setText(detTahunberdiri);
 
     }
 }
